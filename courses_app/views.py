@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def courses_page(request):
+    if request.user.is_authenticated:
+        return HttpResponse('This is the Courses page')
+    return HttpResponse("You have no permissions to view this page")
