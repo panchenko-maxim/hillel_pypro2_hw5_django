@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>session</title>
+</head>
+<body>
+    <p>Now in session: {{ session_data }}</p>
+    <br>
+    <form action="{% url 'session_page' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="session_input" placeholder="Input data in session">
+        <button type="submit">Send</button>
+    </form>
+    <br>
+    <a href="{% url 'clear_session' %}">Clear session</a>
+    <br>
+    <a href="{% url 'input_page' %}">Back to user input</a>
+</body>
+</html>
